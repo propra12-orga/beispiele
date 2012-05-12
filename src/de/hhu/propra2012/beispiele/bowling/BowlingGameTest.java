@@ -3,6 +3,7 @@ package de.hhu.propra2012.beispiele.bowling;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class BowlingGameTest {
@@ -23,6 +24,16 @@ public class BowlingGameTest {
 	public void testAllOnes() {
 		rollN(20, 1);
 		assertEquals(20, g.score());
+	}
+	
+	@Ignore
+	@Test
+	public void testOneSpare() {
+		g.roll(5);
+		g.roll(5);
+		g.roll(3);
+		rollN(17, 0);
+		assertEquals(16, g.score());
 	}
 	
 	private void rollN(int n, int pins) {
