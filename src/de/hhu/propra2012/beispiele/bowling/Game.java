@@ -12,9 +12,14 @@ public class Game {
 		int score = 0, frameIndex = 0;
 		for (int frame = 0; frame < rolls.length/2; frame++) {
 			score += scoreInFrame(frameIndex);
+			if (isSpare(frameIndex)) score += rolls[frameIndex+2];
 			frameIndex += 2;
 		}
 		return score;
+	}
+
+	private boolean isSpare(int frameIndex) {
+		return scoreInFrame(frameIndex) == 10;
 	}
 
 	private int scoreInFrame(int frameIndex) {
