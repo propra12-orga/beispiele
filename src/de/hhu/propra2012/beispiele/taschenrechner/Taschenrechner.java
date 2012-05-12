@@ -1,4 +1,4 @@
-package junit;
+package de.hhu.propra2012.beispiele.taschenrechner;
 
 /**
  * Ein einfacher Taschenrechner.
