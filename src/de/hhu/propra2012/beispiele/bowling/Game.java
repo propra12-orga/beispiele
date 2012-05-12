@@ -11,11 +11,19 @@ public class Game {
 	public int score() {
 		int score = 0, frameIndex = 0;
 		for (int frame = 0; frame < rolls.length/2; frame++) {
-			score += scoreInFrame(frameIndex);
-			if (isSpare(frameIndex)) score += rolls[frameIndex+2];
-			frameIndex += 2;
+			if (isStrike(frameIndex)) {
+				score += 10 + scoreInFrame(++frameIndex);
+			} else {
+				score += scoreInFrame(frameIndex);
+				if (isSpare(frameIndex)) score += rolls[frameIndex+2];
+				frameIndex += 2;
+			}
 		}
 		return score;
+	}
+
+	private boolean isStrike(int frameIndex) {
+		return rolls[frameIndex] == 10;
 	}
 
 	private boolean isSpare(int frameIndex) {
